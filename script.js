@@ -1,5 +1,3 @@
-//Task 01:
-
 const function1 = async (array) => {
     for (let i = 0; i < array.length; i++) {
       console.log(array[i]);
@@ -11,7 +9,6 @@ const function1 = async (array) => {
 
 
 
-    //Task 02:
 
 const fetchData = async () => {
     return new Promise((resolve) => {
@@ -30,7 +27,7 @@ const fetchData = async () => {
 }
 function2();
 
-const fetchingData = async () => {
+const fetching = async () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         reject(new Error("Simulated API call failed"));
@@ -38,19 +35,19 @@ const fetchingData = async () => {
     });
   };
 
-  const awaitCall = async () => {
+  const await = async () => {
     try {
-      const data = await fetchingData();
+      const data = await fetching();
       console.log(data);
     } catch (error) {
       console.error("Error fetching data. Please try again later.");
     }
   };
 
-  awaitCall();
+  await();
 
 
-  const concurrentRequests = async () => {
+  const concurrentReq = async () => {
     try {
       const [result1, result2] = await Promise.all([fetchData(), fetchingData()]);
       console.log("Combined Results:");
@@ -61,7 +58,7 @@ const fetchingData = async () => {
     }
   };
 
- concurrentRequests();
+ concurrentReq();
 
 
  const fetchFromUrl = async (url) => {
@@ -72,7 +69,7 @@ const fetchingData = async () => {
     return response.json();
   };
 
-  const parallelCalls = async (urls) => {
+  const parallelCal = async (urls) => {
     try {
       const fetchPromises = urls.map(url => fetchFromUrl(url));
       const results = await Promise.all(fetchPromises);
@@ -81,4 +78,4 @@ const fetchingData = async () => {
       console.error("Error fetching data:", error);
     }
   };
-  parallelCalls(urls);
+  parallelCal(urls);
